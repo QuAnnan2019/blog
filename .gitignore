@@ -4,5 +4,6 @@
 /_loveit_stage/
 /themes/LoveIt.incomplete/
 /themes/LoveIt.wrapper/
+*.log
 .DS_Store
 Thumbs.db
