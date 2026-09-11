@@ -1,0 +1,8 @@
+/public/
+/resources/
+/.hugo_build.lock
+/_loveit_stage/
+/themes/LoveIt.incomplete/
+/themes/LoveIt.wrapper/
+.DS_Store
+Thumbs.db
