@@ -4,6 +4,7 @@
 /_loveit_stage/
 /themes/LoveIt.incomplete/
 /themes/LoveIt.wrapper/
+/_loveit_clone_failed/
 *.log
 *.log.err
 .DS_Store
