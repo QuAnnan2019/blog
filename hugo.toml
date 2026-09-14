@@ -64,7 +64,7 @@ enableEmoji = true
   [params.home]
     [params.home.profile]
       enable = true
-      avatarURL = "/images/avatar.png"
+      avatarURL = "images/avatar.png"
       title = "安南的博客"
       subtitle = "博客、笔记，以及值得长期保存的思考。"
       typeit = false
