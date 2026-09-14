@@ -1,0 +1,51 @@
+{{- define "content" -}}
+  {{- $profile := .Site.Params.home.profile -}}
+  {{- $avatar := $profile.avatarURL -}}
+  {{- $updates := where .Site.RegularPages "Section" "in" (slice "posts" "notes") -}}
+  {{- $updates = $updates.ByDate.Reverse -}}
+
+  <div class="profile-home">
+    <section class="profile-hero" aria-labelledby="profile-home-title">
+      <div class="profile-hero-content">
+        {{- with $avatar -}}
+          <img class="profile-hero-avatar" src="{{ . | relURL }}" alt="{{ $profile.title }} 的头像" width="192" height="192">
+        {{- end -}}
+        <h1 id="profile-home-title" class="profile-hero-title">{{ $profile.title }}</h1>
+        {{- with $profile.subtitle -}}
+          <p class="profile-hero-subtitle">{{ . }}</p>
+        {{- end -}}
+      </div>
+      <a class="profile-hero-scroll" href="#recent-updates" aria-label="查看最近更新" title="查看最近更新">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section id="recent-updates" class="recent-updates" aria-labelledby="recent-updates-title">
+      <div class="recent-updates-heading">
+        <p class="recent-updates-eyebrow">持续整理</p>
+        <h2 id="recent-updates-title">最近更新</h2>
+      </div>
+
+      <div class="recent-updates-list">
+        {{- range first 6 $updates -}}
+          {{- $kind := "博客" -}}
+          {{- if eq .Section "notes" -}}
+            {{- $kind = "笔记" -}}
+          {{- end -}}
+          <article class="recent-update-item">
+            <div class="recent-update-meta">
+              <span class="recent-update-kind">{{ $kind }}</span>
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            </div>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{- with .Summary | plainify | htmlUnescape | truncate 110 -}}
+              <p>{{ . }}</p>
+            {{- end -}}
+          </article>
+        {{- else -}}
+          <p class="recent-updates-empty">新的内容正在整理中。</p>
+        {{- end -}}
+      </div>
+    </section>
+  </div>
+{{- end -}}
