@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://quannan2019.github.io/blog/"
 locale = "en"
 defaultContentLanguage = "en"
 title = "My Knowledge Garden"
