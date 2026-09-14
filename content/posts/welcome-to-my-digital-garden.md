@@ -1,18 +1,18 @@
 ---
-title: "Welcome to My Digital Garden"
+title: "欢迎来到安南的博客"
 date: 2026-09-11T09:00:00+08:00
 draft: false
-categories: ["Writing"]
-tags: ["welcome", "knowledge-management"]
-series: ["Site Notes"]
+categories: ["随笔"]
+tags: ["欢迎", "知识管理"]
+series: ["站点笔记"]
 ---
 
-This is where finished thoughts live alongside the notes that produced them.
+这里存放已经沉淀成形的思考，也保留它们与笔记之间的联系。
 
-## What belongs here
+## 这里适合写什么
 
-Posts are for ideas that are ready to share. They can be essays, project write-ups, or useful explanations that deserve a complete narrative.
+博客用于发布已经准备好分享的内容：一篇随笔、一次项目复盘，或一个值得完整说明的实践经验。
 
-## How the garden grows
+## 让知识持续生长
 
-Notes do not need to be complete before they are useful. A short note can become a post when it has enough context, examples, and a point of view.
+笔记不必足够完整才有价值。一个简短的记录可以随着补充的背景、案例和观点，慢慢发展成一篇文章。

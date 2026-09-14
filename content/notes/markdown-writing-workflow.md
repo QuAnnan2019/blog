@@ -1,23 +1,23 @@
 ---
-title: "A Markdown Writing Workflow"
+title: "Markdown 写作工作流"
 date: 2026-09-11T10:00:00+08:00
 lastmod: 2026-09-11T10:00:00+08:00
 draft: false
-categories: ["Knowledge Base"]
-tags: ["markdown", "writing", "workflow"]
-series: ["Writing Systems"]
+categories: ["知识库"]
+tags: ["Markdown", "写作", "工作流"]
+series: ["写作系统"]
 ---
 
-Use a small loop: capture, clarify, connect, and publish.
+使用一个简单的循环：捕捉、澄清、连接、发布。
 
-## Capture
+## 捕捉
 
-Write the smallest useful version of an idea as soon as it appears.
+想法出现时，先写下最小但有用的版本。
 
-## Clarify
+## 澄清
 
-Give each note a title, a few tags, and enough context for your future self.
+给笔记一个标题、几个标签，并补足未来的自己能够理解的背景。
 
-## Connect
+## 连接
 
-Link related notes with shared tags or a series before expanding the idea into a post.
+在扩写之前，用共同的标签或系列关联相关笔记。

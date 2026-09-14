@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "关于我"
 ---
 
-This is a personal space for essays, technical notes, and ideas worth revisiting.
+这里是安南的个人知识空间，用来记录技术实践、学习笔记与值得反复推敲的想法。
