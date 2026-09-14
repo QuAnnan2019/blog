@@ -1,7 +1,7 @@
 baseURL = "https://quannan2019.github.io/blog/"
-locale = "en"
-defaultContentLanguage = "en"
-title = "My Knowledge Garden"
+locale = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "安南的博客"
 theme = "LoveIt"
 enableRobotsTXT = true
 enableEmoji = true
@@ -21,46 +21,52 @@ enableEmoji = true
 
 [[menu.main]]
   identifier = "posts"
-  name = "Posts"
+  name = "博客"
   url = "/posts/"
   weight = 10
 
 [[menu.main]]
   identifier = "notes"
-  name = "Notes"
+  name = "笔记"
   url = "/notes/"
   weight = 20
 
 [[menu.main]]
   identifier = "tags"
-  name = "Tags"
+  name = "标签"
   url = "/tags/"
   weight = 30
 
 [[menu.main]]
   identifier = "about"
-  name = "About"
+  name = "关于我"
   url = "/about/"
   weight = 40
 
 [params]
   defaultTheme = "auto"
   dateFormat = "2006-01-02"
-  title = "My Knowledge Garden"
-  description = "A personal collection of essays and notes."
+  title = "安南的博客"
+  description = "记录技术、思考与知识。"
+
+  [params.author]
+    name = "安南"
+    email = ""
+    link = ""
 
   [params.header]
     desktopMode = "fixed"
     mobileMode = "auto"
     [params.header.title]
-      name = "My Knowledge Garden"
+      name = "安南的博客"
       typeit = false
 
   [params.home]
     [params.home.profile]
       enable = true
-      title = "My Knowledge Garden"
-      subtitle = "Essays, notes, and things worth keeping."
+      avatarURL = "/images/avatar.png"
+      title = "安南的博客"
+      subtitle = "博客、笔记，以及值得长期保存的思考。"
       typeit = false
       social = false
     [params.home.posts]
