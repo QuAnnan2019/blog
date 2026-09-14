@@ -1,0 +1,33 @@
+{{- $posts := where .Site.RegularPages "Section" "posts" -}}
+{{- $notes := where .Site.RegularPages "Section" "notes" -}}
+{{- $tags := .Site.Taxonomies.tags -}}
+{{- $announcement := .Site.Params.home.widgets.announcement | default "欢迎来到这里。" -}}
+
+<section class="home-widgets" aria-label="站点信息">
+  <article class="home-widget home-widget-announcement">
+    <h2 class="home-widget-title"><i class="fas fa-bullhorn" aria-hidden="true"></i><span>公告</span></h2>
+    <p>{{ $announcement }}</p>
+  </article>
+
+  <div class="home-widget-grid">
+    <article class="home-widget home-widget-data">
+      <h2 class="home-widget-title"><i class="fas fa-chart-bar" aria-hidden="true"></i><span>站点数据</span></h2>
+      <nav class="home-widget-stats" aria-label="内容统计">
+        <a href="{{ "posts/" | relURL }}"><span>博客</span><strong>{{ len $posts }}</strong></a>
+        <a href="{{ "notes/" | relURL }}"><span>笔记</span><strong>{{ len $notes }}</strong></a>
+        <a href="{{ "tags/" | relURL }}"><span>标签</span><strong>{{ len $tags }}</strong></a>
+      </nav>
+    </article>
+
+    {{- with $tags -}}
+      <article class="home-widget home-widget-tags">
+        <h2 class="home-widget-title"><i class="fas fa-tags" aria-hidden="true"></i><span>标签</span></h2>
+        <div class="home-widget-tag-cloud">
+          {{- range .ByCount -}}
+            <a href="{{ .Page.RelPermalink }}" title="{{ .Page.Title }}：{{ .Count }} 篇内容">{{ .Page.Title }}</a>
+          {{- end -}}
+        </div>
+      </article>
+    {{- end -}}
+  </div>
+</section>
