@@ -58,7 +58,7 @@ enableEmoji = true
     desktopMode = "fixed"
     mobileMode = "auto"
     [params.header.title]
-      name = "安南的博客"
+      name = "📚"
       typeit = false
 
   [params.home]
@@ -66,7 +66,7 @@ enableEmoji = true
       enable = true
       avatarURL = "images/avatar.png"
       title = "安南的博客"
-      subtitle = "博客、笔记，以及值得长期保存的思考。"
+      subtitle = "先相信，再看见。"
       typeit = false
       social = false
     [params.home.posts]
