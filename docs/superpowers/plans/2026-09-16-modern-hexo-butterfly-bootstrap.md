@@ -199,9 +199,10 @@ public/
 db.json
 .DS_Store
 .cache/
+preview-home.png
 ```
 
-Expected: dependency and generated files are ignored, while source, configuration, documentation, and theme references remain trackable.
+Expected: dependency, generated files, and the local browser verification capture are ignored, while source, configuration, documentation, and theme references remain trackable.
 
 - [ ] **Step 4: Commit the minimal site configuration**
 
