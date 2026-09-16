@@ -4,7 +4,7 @@
 
 **Goal:** Build an isolated local Hexo site using the latest stable Hexo and Butterfly releases, ready for a Chinese `/blog/` preview.
 
-**Architecture:** Initialize a fresh Hexo project at `D:\\project\\hexo-modern`, then clone Butterfly tag `5.7.0` under `themes/butterfly` and track its source in the parent repository. Keep the root config and theme overrides separate, validate static generation and local preview, and leave all GitHub publishing out of scope.
+**Architecture:** Initialize a fresh Hexo project at `D:\\project\\hexo-modern`, then add Butterfly tag `5.7.0` as the `themes/butterfly` Git submodule. Keep the root config and theme overrides separate, validate static generation and local preview, and leave all GitHub publishing out of scope.
 
 **Tech Stack:** Node.js 24, npm 11, latest stable Hexo packages, stable `jerryc127/hexo-theme-butterfly` release, Git, PowerShell.
 
@@ -17,7 +17,7 @@
 - Create: `D:\\project\\hexo-modern\\_config.butterfly.yml` — user-owned Butterfly overrides.
 - Create: `D:\\project\\hexo-modern\\.gitignore` — generated and local-only file exclusions.
 - Create: `D:\\project\\hexo-modern\\scaffolds\\` and `source\\` — fresh Hexo defaults.
-- Create: `D:\\project\\hexo-modern\\themes\\butterfly` — source for the pinned current Butterfly theme.
+- Create: `D:\\project\\hexo-modern\\themes\\butterfly` and `.gitmodules` — pinned current Butterfly theme.
 
 ### Task 1: Select Versions and Initialize a Clean Hexo Application
 
@@ -108,20 +108,22 @@ Expected: one commit contains only generated source and planning docs, never `no
 
 **Files:**
 - Create: `D:\\project\\hexo-modern\\themes\\butterfly`
+- Create: `D:\\project\\hexo-modern\\.gitmodules`
 - Modify: `D:\\project\\hexo-modern\\package.json`
 - Modify: `D:\\project\\hexo-modern\\package-lock.json`
 
-- [ ] **Step 1: Clone Butterfly at the verified stable tag**
+- [ ] **Step 1: Add Butterfly at the verified stable tag**
 
 Run from `D:\\project\\hexo-modern`:
 
 ```powershell
 git clone --depth 1 --branch 5.7.0 https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 git -C themes\\butterfly describe --tags --exact-match
-Remove-Item -Recurse -Force themes\\butterfly\\.git
+git submodule add --force https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+git submodule status
 ```
 
-Expected: the theme directory contains `_config.yml`; `describe` returns `5.7.0` before the nested Git metadata is removed. The removal is limited to metadata created by this clone, allowing the parent repository to track the exact source contents.
+Expected: the theme directory contains `_config.yml`; `describe` returns `5.7.0`; the submodule status reports commit `f223b1888b42b2b336068e6c959ed90a3cd7c8f3`. The parent repository records the theme source in `.gitmodules` and the exact commit as a Gitlink.
 
 - [ ] **Step 2: Install Butterfly's required renderers**
 
@@ -139,7 +141,7 @@ Expected: both renderers appear in `package.json`, and Hexo lists them without a
 Run:
 
 ```powershell
-git add themes/butterfly package.json package-lock.json
+git add .gitmodules themes/butterfly package.json package-lock.json
 git commit -m "feat: add current Butterfly theme"
 ```
 
