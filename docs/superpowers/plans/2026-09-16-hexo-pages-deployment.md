@@ -141,10 +141,13 @@ Expected: both fetch and push URLs are `https://github.com/QuAnnan2019/blog.git`
 Run:
 
 ```powershell
-$remoteMainSha = (git ls-remote origin refs/heads/main).Split("`t")[0]
+git fetch origin main
+$remoteMainSha = git rev-parse origin/main
 if (-not $remoteMainSha) { throw 'Remote main was not found; refusing replacement.' }
-git push origin "${remoteMainSha}:refs/heads/hugo-backup-20260916"
-git ls-remote origin refs/heads/hugo-backup-20260916
+git push origin origin/main:refs/heads/hugo-backup-20260916
+$backupSha = (git ls-remote origin refs/heads/hugo-backup-20260916).Split("`t")[0]
+if ($backupSha -ne $remoteMainSha) { throw 'Backup SHA does not match remote main; refusing replacement.' }
+"backupSha=$backupSha"
 ```
 
 Expected: the backup branch resolves to exactly `$remoteMainSha`. Stop if the SHA differs or the push fails.
