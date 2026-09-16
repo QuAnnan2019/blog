@@ -186,27 +186,115 @@ html {
   }
 }
 
-.recent-update-item {
-  border-bottom: 1px dashed $global-border-color;
-  padding: 1rem 0;
+.recent-updates-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.recent-update-card {
+  background: $global-background-color;
+  border: 1px solid $global-border-color;
+  border-radius: .45rem;
+  display: grid;
+  grid-template-columns: minmax(12rem, 42%) minmax(0, 1fr);
+  min-height: 12.5rem;
+  overflow: hidden;
 
   [theme=dark] & {
+    background: $global-background-color-dark;
     border-color: $global-border-color-dark;
   }
+}
+
+.recent-update-card--cover-right .recent-update-cover {
+  order: 2;
+}
+
+.recent-update-card--cover-right .recent-update-copy {
+  order: 1;
+}
+
+.recent-update-cover {
+  background: $global-border-color;
+  display: block;
+  min-height: 100%;
+  overflow: hidden;
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.recent-update-cover--fallback {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  span {
+    border: 1px solid currentColor;
+    font-size: .875rem;
+    padding: .35rem .65rem;
+  }
+}
+
+.recent-update-cover--note {
+  background: #dbeaf4;
+  color: #407a9f;
+}
+
+.recent-update-cover--post {
+  background: #f3e8df;
+  color: #9b6b49;
+}
+
+[theme=dark] .recent-update-cover--note {
+  background: #263744;
+  color: #9bc7df;
+}
+
+[theme=dark] .recent-update-cover--post {
+  background: #44342c;
+  color: #dfba9b;
+}
+
+.recent-update-copy {
+  align-content: center;
+  display: grid;
+  padding: 1.4rem 1.5rem;
 
   h3 {
-    font-size: 1.125rem;
+    font-size: 1.15rem;
     line-height: 1.4;
-    margin: .3rem 0;
+    margin: .35rem 0;
   }
+}
 
-  p {
-    color: $global-font-secondary-color;
-    line-height: 1.6;
-    margin: .35rem 0 0;
+.recent-update-summary {
+  color: $global-font-secondary-color;
+  line-height: 1.65;
+  margin: .25rem 0 0;
+
+  [theme=dark] & {
+    color: $global-font-secondary-color-dark;
+  }
+}
+
+.recent-update-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: .8rem;
+
+  a {
+    border: 1px solid $global-border-color;
+    font-size: .75rem;
+    padding: .1rem .45rem;
 
     [theme=dark] & {
-      color: $global-font-secondary-color-dark;
+      border-color: $global-border-color-dark;
     }
   }
 }
@@ -259,6 +347,24 @@ html {
 
   .home-widget-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recent-update-card {
+    grid-template-columns: 1fr;
+  }
+
+  .recent-update-card--cover-right .recent-update-cover,
+  .recent-update-card--cover-right .recent-update-copy {
+    order: initial;
+  }
+
+  .recent-update-cover {
+    aspect-ratio: 16 / 7;
+    min-height: 0;
+  }
+
+  .recent-update-copy {
+    padding: 1.15rem 1.2rem;
   }
 }
 
