@@ -9,7 +9,7 @@ Replace the remaining fresh-install placeholder presentation with the user-appro
 - Reuse the legacy site's public site identity: title `你好吖~`, description/subtitle `coding`, and author `安南`.
 - Reuse only two local legacy presentation assets: `source/img/xiaogong.jpg` as the sidebar avatar and `source/img/fengmian.png` as the home-page cover.
 - Configure the native Butterfly navigation, left collapsible sidebar, announcement, recent-post, archive, and web-info widgets.
-- Remove the generated `Hello World` post and create a minimal Chinese `/about/` page.
+- Remove the generated `Hello World` post and create a minimal Chinese `/about/` page. Configure Hexo's native index generator to emit the home route even when the post collection is empty.
 - Enable the native cover, typed home subtitle, and page-enter transition effects.
 
 ## Boundaries
@@ -31,7 +31,7 @@ The sidebar appears on the left and is initially hidden behind Butterfly's exist
 
 ## Content Flow
 
-Hexo reads site identity from `_config.yml`, merges the Butterfly-specific settings from `_config.butterfly.yml`, and serves the two copied local assets from `/blog/img/`. The generated home page contains no sample post; until content migration begins, the sidebar represents a zero-post site and the About page supplies the only authored landing destination.
+Hexo reads site identity from `_config.yml`, merges the Butterfly-specific settings from `_config.butterfly.yml`, and serves the two copied local assets from `/blog/img/`. `index_generator.per_page: 0` guarantees a generated home route even when there are zero posts. The generated home page contains no sample post; until content migration begins, the sidebar represents a zero-post site and the About page supplies the only authored landing destination.
 
 ## Verification
 

@@ -18,7 +18,7 @@
 - Create: `D:\\project\\hexo-modern\\source\\tags\\index.md` — tags route.
 - Create: `D:\\project\\hexo-modern\\source\\categories\\index.md` — categories route.
 - Delete: `D:\\project\\hexo-modern\\source\\_posts\\hello-world.md` — generated sample.
-- Modify: `D:\\project\\hexo-modern\\_config.yml` and `_config.butterfly.yml` — identity and presentation.
+- Modify: `D:\\project\\hexo-modern\\_config.yml` and `_config.butterfly.yml` — identity, empty-home generation, and presentation.
 
 ### Task 1: Add Approved Images and Remove the Sample Post
 
@@ -157,7 +157,11 @@ Expected: no social link, remote text source, script injection, counter, comment
 - Create: `D:\\project\\hexo-modern\\source\\tags\\index.md`
 - Create: `D:\\project\\hexo-modern\\source\\categories\\index.md`
 
-- [ ] **Step 1: Create the About page**
+- [ ] **Step 1: Configure the empty-home generator and create the About page**
+
+In `D:\\project\\hexo-modern\\_config.yml`, set `index_generator.per_page` to `0`. Hexo's index generator then produces `public\\index.html` with an empty `page.posts` collection.
+
+Create the About page:
 
 ```markdown
 ---
