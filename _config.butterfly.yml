@@ -1,3 +1,25 @@
+menu:
+  主页: / || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  关于: /about/ || fas fa-heart
+
+avatar:
+  img: /img/xiaogong.jpg
+  effect: false
+
+index_img: /img/fengmian.png
+
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - coding
+
+enter_transitions: true
+
 darkmode:
   enable: true
   button: true
@@ -5,3 +27,37 @@ darkmode:
 
 translate:
   enable: false
+
+aside:
+  enable: true
+  hide: true
+  button: true
+  mobile: true
+  position: left
+  card_author:
+    enable: true
+    description: coding
+    button:
+      enable: false
+  card_announcement:
+    enable: true
+    content: 欢迎来到『annnan』的小站(￣▽￣)～■干杯□～(￣▽￣)
+  card_recent_post:
+    enable: true
+    limit: 5
+  card_archives:
+    enable: true
+    type: monthly
+    format: MMMM YYYY
+    order: -1
+    limit: 8
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+
+footer:
+  owner:
+    enable: true
+    since: 2021
+  custom_text: Hi, welcome to my blog!
