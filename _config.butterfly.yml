@@ -1,0 +1,7 @@
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 1
+
+translate:
+  enable: false
