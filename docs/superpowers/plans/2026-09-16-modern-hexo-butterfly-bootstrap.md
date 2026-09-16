@@ -65,7 +65,6 @@ Copy-Item -Recurse -Force D:\\project\\hexo-bootstrap-tmp\\scaffolds D:\\project
 Copy-Item -Recurse -Force D:\\project\\hexo-bootstrap-tmp\\source D:\\project\\hexo-modern\\source
 Copy-Item -Force D:\\project\\hexo-bootstrap-tmp\\_config.yml D:\\project\\hexo-modern\\_config.yml
 Copy-Item -Force D:\\project\\hexo-bootstrap-tmp\\package.json D:\\project\\hexo-modern\\package.json
-Copy-Item -Force D:\\project\\hexo-bootstrap-tmp\\package-lock.json D:\\project\\hexo-modern\\package-lock.json
 ```
 
 Expected: the target has a generated Hexo application plus its existing documentation. Never copy any source, config, lockfile, dependency, deployment script, or certificate from `D:\\project\\hexo\\blog`.
@@ -88,11 +87,11 @@ Run:
 
 ```powershell
 Set-Location D:\\project\\hexo-modern
-npm ci
+npm install --package-lock=true
 npx hexo version
 ```
 
-Expected: `npm ci` creates `node_modules` without changing `package-lock.json`, and the second command identifies Hexo, Node, plus its renderer/generator plugins.
+Expected: npm creates `node_modules` and `package-lock.json`; the second command identifies Hexo, Node, plus its renderer/generator plugins.
 
 - [ ] **Step 6: Commit the fresh framework baseline**
 
