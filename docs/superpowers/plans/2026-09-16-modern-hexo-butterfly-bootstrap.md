@@ -28,7 +28,7 @@
 - Create: `D:\\project\\hexo-modern\\scaffolds\\`
 - Create: `D:\\project\\hexo-modern\\source\\`
 
-- [ ] **Step 1: Verify the local toolchain and current package metadata**
+- [x] **Step 1: Verify the local toolchain and current package metadata**
 
 Run:
 
@@ -43,7 +43,7 @@ git ls-remote --tags --refs https://github.com/jerryc127/hexo-theme-butterfly.gi
 
 Expected: Node 24.x, npm 11.x, Git, Hexo `8.1.2`, Hexo CLI `4.3.2`, and Butterfly tag `5.7.0`. Stop for review if a newer stable release is returned; do not substitute an upstream development branch.
 
-- [ ] **Step 2: Verify that the target still contains only committed documentation**
+- [x] **Step 2: Verify that the target still contains only committed documentation**
 
 Run:
 
@@ -54,7 +54,7 @@ Get-ChildItem -Force D:\\project\\hexo-modern
 
 Expected: no untracked application files. Retain the existing `docs\\superpowers` tree.
 
-- [ ] **Step 3: Generate a fresh site outside the target and copy only its application source**
+- [x] **Step 3: Generate a fresh site outside the target and copy only its application source**
 
 Run:
 
@@ -81,7 +81,9 @@ Test-Path D:\\project\\hexo-bootstrap-tmp
 
 Expected: the first command returns `True`; the final command returns `False`. This removal is limited to the temporary directory created in Step 3.
 
-- [ ] **Step 5: Install and check the generated dependencies**
+**Execution note (2026-09-16):** The runtime policy rejected this deletion command after confirming the directory exists. `D:\\project\\hexo-bootstrap-tmp` remains outside the new repository and contains only the clean Hexo initializer output; it can be removed manually when the policy permits.
+
+- [x] **Step 5: Install and check the generated dependencies**
 
 Run:
 
@@ -93,7 +95,7 @@ npx hexo version
 
 Expected: npm creates `node_modules` and `package-lock.json`; the second command identifies Hexo, Node, plus its renderer/generator plugins.
 
-- [ ] **Step 6: Commit the fresh framework baseline**
+- [x] **Step 6: Commit the fresh framework baseline**
 
 Run:
 
@@ -112,7 +114,7 @@ Expected: one commit contains only generated source and planning docs, never `no
 - Modify: `D:\\project\\hexo-modern\\package.json`
 - Modify: `D:\\project\\hexo-modern\\package-lock.json`
 
-- [ ] **Step 1: Add Butterfly at the verified stable tag**
+- [x] **Step 1: Add Butterfly at the verified stable tag**
 
 Run from `D:\\project\\hexo-modern`:
 
@@ -125,7 +127,7 @@ git submodule status
 
 Expected: the theme directory contains `_config.yml`; `describe` returns `5.7.0`; the submodule status reports commit `f223b1888b42b2b336068e6c959ed90a3cd7c8f3`. The parent repository records the theme source in `.gitmodules` and the exact commit as a Gitlink.
 
-- [ ] **Step 2: Install Butterfly's required renderers**
+- [x] **Step 2: Install Butterfly's required renderers**
 
 Run:
 
@@ -136,7 +138,7 @@ npx hexo version
 
 Expected: both renderers appear in `package.json`, and Hexo lists them without an error. Do not install former-project plugins such as music, Live2D, charts, encrypt, bangumi, analytics, or comments.
 
-- [ ] **Step 3: Commit the pinned theme and renderers**
+- [x] **Step 3: Commit the pinned theme and renderers**
 
 Run:
 
@@ -154,7 +156,7 @@ Expected: the commit pins one known theme release and adds only its necessary re
 - Create: `D:\\project\\hexo-modern\\_config.butterfly.yml`
 - Create: `D:\\project\\hexo-modern\\.gitignore`
 
-- [ ] **Step 1: Set only the required root Hexo fields**
+- [x] **Step 1: Set only the required root Hexo fields**
 
 In `D:\\project\\hexo-modern\\_config.yml`, set these keys and preserve all remaining fresh-generator defaults:
 
@@ -173,7 +175,7 @@ theme: butterfly
 
 Expected: the theme is Butterfly and all generated links use the intended Pages subpath. Do not add profiles, social URLs, avatars, analytics, comments, custom widgets, or external services.
 
-- [ ] **Step 2: Write the minimal Butterfly override file**
+- [x] **Step 2: Write the minimal Butterfly override file**
 
 Create `D:\\project\\hexo-modern\\_config.butterfly.yml` with:
 
@@ -189,7 +191,7 @@ translate:
 
 Expected: Butterfly follows the system preference when available and does not add a Chinese conversion control. All other components retain the current theme's defaults.
 
-- [ ] **Step 3: Exclude generated and local-only data**
+- [x] **Step 3: Exclude generated and local-only data**
 
 Create `D:\\project\\hexo-modern\\.gitignore` with:
 
@@ -204,7 +206,7 @@ preview-home.png
 
 Expected: dependency, generated files, and the local browser verification capture are ignored, while source, configuration, documentation, and theme references remain trackable.
 
-- [ ] **Step 4: Commit the minimal site configuration**
+- [x] **Step 4: Commit the minimal site configuration**
 
 Run:
 
@@ -220,7 +222,7 @@ Expected: no old-site or sensitive configuration is staged.
 **Files:**
 - Create: `D:\\project\\hexo-modern\\public\\index.html` — generated, ignored output.
 
-- [ ] **Step 1: Generate the production site from a clean state**
+- [x] **Step 1: Generate the production site from a clean state**
 
 Run from `D:\\project\\hexo-modern`:
 
@@ -233,7 +235,7 @@ Select-String -Path .\\public\\index.html -Pattern '/blog/' -Quiet
 
 Expected: generation reports no theme or renderer errors and the final two commands return `True`.
 
-- [ ] **Step 2: Start and inspect the local site**
+- [x] **Step 2: Start and inspect the local site**
 
 Run:
 
@@ -243,7 +245,7 @@ npx hexo server
 
 Expected: Hexo serves the site locally. Inspect `http://localhost:4000/blog/` for a Butterfly homepage, navigation, default post, and a working light/dark control. Stop the server after inspection.
 
-- [ ] **Step 3: Verify the Git boundary before the final commit**
+- [x] **Step 3: Verify the Git boundary before the final commit**
 
 Run:
 
