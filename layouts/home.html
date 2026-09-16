@@ -29,21 +29,8 @@
       </div>
 
       <div class="recent-updates-list">
-        {{- range first 6 $updates -}}
-          {{- $kind := "博客" -}}
-          {{- if eq .Section "notes" -}}
-            {{- $kind = "笔记" -}}
-          {{- end -}}
-          <article class="recent-update-item">
-            <div class="recent-update-meta">
-              <span class="recent-update-kind">{{ $kind }}</span>
-              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-            </div>
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            {{- with .Summary | plainify | htmlUnescape | truncate 110 -}}
-              <p>{{ . }}</p>
-            {{- end -}}
-          </article>
+        {{- range $index, $update := first 6 $updates -}}
+          {{ partial "home/recent-update-card.html" (dict "page" $update "index" $index) }}
         {{- else -}}
           <p class="recent-updates-empty">新的内容正在整理中。</p>
         {{- end -}}

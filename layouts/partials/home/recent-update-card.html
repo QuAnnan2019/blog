@@ -1,0 +1,44 @@
+{{- $page := .page -}}
+{{- $index := .index -}}
+{{- $kind := "博客" -}}
+{{- $kindClass := "post" -}}
+{{- if eq $page.Section "notes" -}}
+  {{- $kind = "笔记" -}}
+  {{- $kindClass = "note" -}}
+{{- end -}}
+{{- $featuredImage := $page.Params.featuredImage -}}
+{{- $tags := $page.GetTerms "tags" -}}
+{{- $cardClass := "recent-update-card" -}}
+{{- if eq (mod $index 2) 1 -}}
+  {{- $cardClass = printf "%s recent-update-card--cover-right" $cardClass -}}
+{{- end -}}
+
+<article class="{{ $cardClass }}">
+  {{- with $featuredImage -}}
+    <a class="recent-update-cover" href="{{ $page.RelPermalink }}" aria-label="阅读：{{ $page.Title }}">
+      <img src="{{ . | relURL }}" alt="{{ $page.Title }} 的封面" loading="lazy">
+    </a>
+  {{- else -}}
+    <a class="recent-update-cover recent-update-cover--fallback recent-update-cover--{{ $kindClass }}" href="{{ $page.RelPermalink }}" aria-label="阅读：{{ $page.Title }}">
+      <span>{{ $kind }}</span>
+    </a>
+  {{- end -}}
+
+  <div class="recent-update-copy">
+    <div class="recent-update-meta">
+      <span class="recent-update-kind">{{ $kind }}</span>
+      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2006-01-02" }}</time>
+    </div>
+    <h3><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
+    {{- with $page.Summary | plainify | htmlUnescape | truncate 130 -}}
+      <p class="recent-update-summary">{{ . }}</p>
+    {{- end -}}
+    {{- with $tags -}}
+      <div class="recent-update-tags" aria-label="文章标签">
+        {{- range first 2 . -}}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end -}}
+      </div>
+    {{- end -}}
+  </div>
+</article>

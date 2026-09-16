@@ -34,7 +34,7 @@
 {{- $featuredImage := $page.Params.featuredImage -}}
 {{- $tags := $page.GetTerms "tags" -}}
 {{- $cardClass := "recent-update-card" -}}
-{{- if modBool $index 2 -}}{{- $cardClass = printf "%s recent-update-card--cover-right" $cardClass -}}{{- end -}}
+{{- if eq (mod $index 2) 1 -}}{{- $cardClass = printf "%s recent-update-card--cover-right" $cardClass -}}{{- end -}}
 <article class="{{ $cardClass }}">
   {{- with $featuredImage -}}
     <a class="recent-update-cover" href="{{ $page.RelPermalink }}" aria-label="阅读：{{ $page.Title }}"><img src="{{ . | relURL }}" alt="{{ $page.Title }} 的封面" loading="lazy"></a>
