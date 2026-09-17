@@ -20,7 +20,7 @@
 **Files:**
 - Modify: `D:\\project\\hexo-modern\\_config.butterfly.yml`
 
-- [ ] **Step 1: Preserve current navigation, asset, sidebar, footer, dark-mode, and transition settings**
+- [x] **Step 1: Preserve current navigation, asset, sidebar, footer, dark-mode, and transition settings**
 
 Run:
 
@@ -30,7 +30,7 @@ Get-Content -Raw D:\\project\\hexo-modern\\_config.butterfly.yml
 
 Expected: current content includes the local avatar `/img/xiaogong.jpg`, cover `/img/fengmian.png`, left sidebar, and `autoChangeMode: 1` before new effect settings are added.
 
-- [ ] **Step 2: Add the approved native settings to the same YAML file**
+- [x] **Step 2: Add the approved native settings to the same YAML file**
 
 Append these keys without duplicating existing top-level keys:
 
@@ -88,7 +88,7 @@ subtitle:
 
 Expected: source mode `3` uses 今日诗词; Butterfly's default jsDelivr extension scripts provide the approved particle and click effects. Busuanzi counters are disabled. No plugins, arbitrary injected scripts, analytics, comments, or social links are added.
 
-- [ ] **Step 3: Validate YAML with Hexo and commit it**
+- [x] **Step 3: Validate YAML with Hexo and commit it**
 
 Run from `D:\\project\\hexo-modern`:
 
@@ -107,7 +107,7 @@ Expected: Hexo completes generation without configuration errors and the commit 
 **Files:**
 - Create: `D:\\project\\hexo-modern\\public\\` — ignored static output.
 
-- [ ] **Step 1: Assert generated effect markers**
+- [x] **Step 1: Assert generated effect markers**
 
 Run from `D:\\project\\hexo-modern`:
 
@@ -120,7 +120,7 @@ Select-String -Path .\\public\\index.html -Pattern '/blog/img/xiaogong.jpg' -Qui
 
 Expected: the first command identifies 今日诗词 and the approved Butterfly jsDelivr effect resources; the Busuanzi check returns `False`; both path checks return `True`.
 
-- [ ] **Step 2: Inspect the desktop local page in an isolated browser session**
+- [x] **Step 2: Inspect the desktop local page in an isolated browser session**
 
 Run `npx hexo server`, then use `agent-browser` with a unique session to open `http://localhost:4000/blog/`. Capture an interactive snapshot and a screenshot outside version control. Verify the title, five navigation links, no `Follow Me` control, native theme controls, and readable header/content contrast over the blue background.
 
