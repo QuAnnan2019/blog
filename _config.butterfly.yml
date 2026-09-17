@@ -14,7 +14,7 @@ index_img: /img/fengmian.png
 subtitle:
   enable: true
   effect: true
-  source: false
+  source: 3
   sub:
     - coding
 
@@ -61,3 +61,37 @@ footer:
     enable: true
     since: 2021
   custom_text: Hi, welcome to my blog!
+
+background: "#49b1f5"
+
+preloader:
+  enable: true
+  source: 1
+
+readmode: true
+rightside_scroll_percent: true
+
+canvas_nest:
+  enable: true
+  color: '255,255,255'
+  opacity: 0.35
+  zIndex: -1
+  count: 60
+  mobile: false
+
+clickShowText:
+  enable: true
+  text:
+    - 富强
+    - 民主
+    - 文明
+    - 和谐
+    - 爱国
+    - 敬业
+    - 诚信
+    - 友善
+    - 公正
+    - 法制
+  fontSize: 15px
+  random: false
+  mobile: false
