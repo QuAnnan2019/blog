@@ -68,6 +68,11 @@ clickShowText:
   fontSize: 15px
   random: false
   mobile: false
+
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
 ```
 
 Replace the existing `subtitle` section with:
@@ -81,7 +86,7 @@ subtitle:
     - coding
 ```
 
-Expected: source mode `3` uses 今日诗词. No plugins, injected scripts, external CSS, analytics, comments, or social links are added.
+Expected: source mode `3` uses 今日诗词; Butterfly's default jsDelivr extension scripts provide the approved particle and click effects. Busuanzi counters are disabled. No plugins, arbitrary injected scripts, analytics, comments, or social links are added.
 
 - [ ] **Step 3: Validate YAML with Hexo and commit it**
 
@@ -107,12 +112,13 @@ Expected: Hexo completes generation without configuration errors and the commit 
 Run from `D:\\project\\hexo-modern`:
 
 ```powershell
-Select-String -Path .\\public\\index.html -Pattern 'canvas-nest|clickShowText|jinrishici|fullpage-loading' -AllMatches
+Select-String -Path .\\public\\index.html -Pattern 'canvas-nest|click-show-text|jinrishici|fullpage-loading' -AllMatches
+Select-String -Path .\\public\\index.html -Pattern 'busuanzi' -Quiet
 Select-String -Path .\\public\\index.html -Pattern '/blog/img/fengmian.png' -Quiet
 Select-String -Path .\\public\\index.html -Pattern '/blog/img/xiaogong.jpg' -Quiet
 ```
 
-Expected: the first command identifies native effect resources; both path checks return `True`.
+Expected: the first command identifies 今日诗词 and the approved Butterfly jsDelivr effect resources; the Busuanzi check returns `False`; both path checks return `True`.
 
 - [ ] **Step 2: Inspect the desktop local page in an isolated browser session**
 

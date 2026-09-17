@@ -15,7 +15,7 @@ Restore the selected visual and interactive character of the legacy Butterfly si
 
 ## External Dependency Boundary
 
-The 今日诗词 subtitle source is the only newly enabled external service. It is non-essential decoration: the page must still render if the service is slow or unavailable. The cover, avatar, background effect, click effect, loading animation, and navigation continue to use theme-local files and browser code.
+The 今日诗词 subtitle source and Butterfly's default jsDelivr-hosted native extension scripts are the enabled external resources. The latter serve the `canvas_nest` and `clickShowText` browser code selected by the user. All are non-essential decoration: the page must still render if a request is slow or unavailable. The cover, avatar, loading animation, and navigation continue to use local theme files and browser code.
 
 ## Configuration
 
@@ -25,7 +25,7 @@ The particle and click effects both set `mobile: false` so they do not consume m
 
 ## Exclusions
 
-- Do not restore Live2D, music players, comments, counters, charts, Pjax, third-party scripts/CSS injections, remote font loading, analytics, or any former plugin package.
+- Do not restore Live2D, music players, comments, counters, charts, Pjax, arbitrary third-party script/CSS injections, remote font loading, analytics, or any former plugin package. Disable Butterfly's default Busuanzi counters explicitly.
 - Do not add any social link or profile URL.
 - Do not alter existing legacy content boundaries or copy additional legacy files.
 

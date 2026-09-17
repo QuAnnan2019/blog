@@ -95,3 +95,8 @@ clickShowText:
   fontSize: 15px
   random: false
   mobile: false
+
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
