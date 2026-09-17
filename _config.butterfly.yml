@@ -29,7 +29,7 @@ translate:
 
 aside:
   enable: true
-  hide: true
+  hide: false
   button: true
   mobile: true
   position: left
