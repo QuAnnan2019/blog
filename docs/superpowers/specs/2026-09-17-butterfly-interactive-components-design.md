@@ -9,19 +9,19 @@ Restore the selected visual and interactive character of the legacy Butterfly si
 - Restore the global blue site background using `#49b1f5`; primary reading content remains in Butterfly's existing white content surfaces.
 - Preserve the existing local cover, left collapsible avatar sidebar, announcement, recent-post, archive, web-info, footer, theme control, and page-enter transition configuration.
 - Enable Butterfly's native loading animation, reading mode, and right-side controls.
-- Restore the native `canvas_nest` particle background on desktop only.
+- Restore the legacy upward bubble background on the desktop homepage only.
 - Restore native click-to-show-text using the legacy ten Chinese civic-value words on desktop only.
 - Configure the home subtitle typewriter to request its content from the official 今日诗词 service using Butterfly source mode `3`.
 
 ## External Dependency Boundary
 
-The 今日诗词 subtitle source and Butterfly's default jsDelivr-hosted native extension scripts are the enabled external resources. The latter serve the `canvas_nest` and `clickShowText` browser code selected by the user. All are non-essential decoration: the page must still render if a request is slow or unavailable. The cover, avatar, loading animation, and navigation continue to use local theme files and browser code.
+The 今日诗词 subtitle source and Butterfly's default jsDelivr-hosted `clickShowText` extension are the enabled external resources. The bubble effect is served locally. All are non-essential decoration: the page must still render if a request is slow or unavailable. The cover, avatar, loading animation, and navigation continue to use local theme files and browser code.
 
 ## Configuration
 
-All overrides remain in `D:\project\hexo-modern\_config.butterfly.yml`; no files under `themes/butterfly/` are modified. The root `_config.yml`, source content, GitHub Actions workflow, `/blog/` URL, and submodule reference remain unchanged.
+All theme overrides remain in `D:\project\hexo-modern\_config.butterfly.yml`; no files under `themes/butterfly/` are modified. A small local stylesheet and native Canvas script at `source/css/home-bubbles.css` and `source/js/home-bubbles.js` are injected through Butterfly's supported `inject` settings. They recreate the old rising white bubbles without jQuery and prevent the canvas from intercepting pointer input. The root `_config.yml`, source content, GitHub Actions workflow, `/blog/` URL, and submodule reference remain unchanged.
 
-The particle and click effects both set `mobile: false` so they do not consume mobile battery or interfere with touch use. The configured particle z-index stays behind page content. The existing system-following dark mode remains enabled.
+The bubble effect runs only on the full-screen homepage header, stays disabled on mobile and when reduced motion is requested, and keeps pointer input available to the page. The click effect remains desktop-only. The existing system-following dark mode remains enabled. Placeholder `coding` copy is empty in site metadata, the sidebar, and subtitle fallback values; source mode `3` continues to show 今日诗词.
 
 ## Exclusions
 

@@ -13,6 +13,8 @@
 ## File Structure
 
 - Modify: `D:\\project\\hexo-modern\\_config.butterfly.yml` — native component settings.
+- Modify: `D:\\project\\hexo-modern\\_config.yml` — remove placeholder metadata.
+- Create: `D:\\project\\hexo-modern\\source\\css\\particle-layer.css` — preserve page clicks above the visible particle canvas.
 - Modify: `D:\\project\\hexo-modern\\docs\\superpowers\\plans\\2026-09-17-butterfly-interactive-components.md` — records execution results.
 
 ### Task 1: Configure Native Interactive Components
@@ -153,3 +155,15 @@ git -C D:\\project\\hexo-modern status --short
 ```
 
 Expected: `status=200`, all content checks return `True`, and no tracked changes remain.
+
+### Task 3: Correct Particle Visibility and Remove Placeholder Copy
+
+**Files:**
+- Modify: `D:\\project\\hexo-modern\\_config.yml`
+- Modify: `D:\\project\\hexo-modern\\_config.butterfly.yml`
+- Create: `D:\\project\\hexo-modern\\source\\css\\particle-layer.css`
+
+- [x] Set `canvas_nest.zIndex` to `0`, because its default `-1` layer sits below the full-screen cover and hides the otherwise loaded and rendered canvas.
+- [x] Inject the local stylesheet through Butterfly's `inject.head` setting and disable pointer events only for the fixed, body-level particle canvas.
+- [x] Remove `coding` from site metadata, the sidebar profile description, and subtitle fallbacks while retaining 今日诗词 source mode `3`.
+- [x] Run `npx hexo generate`, then inspect `http://localhost:4000/blog/` in an isolated browser session. The canvas has visible pixels at z-index `0`, receives no pointer events, the subtitle contains a 今日诗词 response, and the rendered title/body contain no `coding` text.

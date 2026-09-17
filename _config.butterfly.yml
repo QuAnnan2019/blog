@@ -15,8 +15,7 @@ subtitle:
   enable: true
   effect: true
   source: 3
-  sub:
-    - coding
+  sub: []
 
 enter_transitions: true
 
@@ -36,7 +35,7 @@ aside:
   position: left
   card_author:
     enable: true
-    description: coding
+    description: ''
     button:
       enable: false
   card_announcement:
@@ -71,13 +70,11 @@ preloader:
 readmode: true
 rightside_scroll_percent: true
 
-canvas_nest:
-  enable: true
-  color: '255,255,255'
-  opacity: 0.35
-  zIndex: -1
-  count: 60
-  mobile: false
+inject:
+  bottom:
+    - <script type="text/javascript" src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script>
+    - <script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script>
+    - <script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script>
 
 clickShowText:
   enable: true
